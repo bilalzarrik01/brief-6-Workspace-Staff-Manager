@@ -10,7 +10,7 @@
       display: flex;
       justify-content: center;
       padding: 40px;
-      background: linear-gradient(to bottom, #e0b66d, #e6f0fa);
+     background: linear-gradient(to bottom, #000000, #e6f0fa);
     }
 
 /* Container layout */
@@ -37,7 +37,7 @@
   color: #2f6db3;
 }
 
-.cssbuttons-io-button {
+#cssbuttons-io-button {
   display: flex;
   align-items: center;
   font-family: inherit;
@@ -58,15 +58,15 @@
   border-radius: 20em;
 }
 
-.cssbuttons-io-button svg {
+#cssbuttons-io-button svg {
   margin-right: 6px;
 }
 
-.cssbuttons-io-button:hover {
+#cssbuttons-io-button:hover {
   box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
 }
 
-.cssbuttons-io-button:active {
+#cssbuttons-io-button:active {
   box-shadow: 0 0.3em 1em -0.5em #14a73e98;
 }
 
@@ -266,4 +266,50 @@ h2{
 .archives-room .room-name {
   text-shadow: 0 0 5px rgba(0,0,0,0.7);
 }
+#form{
+    background: linear-gradient(to bottom, #4c56da, #e6f0fa);
+    display: flex;
+    flex-direction: column;
+     padding: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
 
+}
+input{
+    padding: 10px;
+    width: 250px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+select {
+  
+    padding: 10px;
+    width: 270px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    
+}
+.submit{
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #2fb36f;
+    color: white;
+    cursor: pointer;
+}
+label{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #000000;
+}
+#formuler{display: none;
+
+}
+#home{
+background: transparent;
+}

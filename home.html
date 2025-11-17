@@ -7,12 +7,12 @@
 <title>Employee Org Chart</title>
 </head>
 <body>
-
+<section id="home">
 <div class="container">
   <!-- Sidebar: Unassigned employees -->
   <aside class="employee-container">
     <h2>Unassigned Employees</h2>
-    <button class="cssbuttons-io-button">
+    <button id="cssbuttons-io-button" type="submit">
   <svg
     height="24"
     width="24"
@@ -61,7 +61,37 @@
     </div>
   </section>
 </main>
+</section>
+<div id="background"></div>
+  <section id="formuler">
+        
+        <form id="form">
+            <h1>FORMULARE</h1>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="leo messi"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="exemple@exemple.com"><br><br>
+                       <label for="name">Phone number:</label>
+            <input type="number" id="name" name="name" placeholder="+212704979657"><br><br>
+            <label for="email">picture URL:</label>
+            <input type="url" id="email" name="url" placeholder=""><br><br>
+            <label for="select">Domaine</label>
+            <select name="" id="">
+                <option  value="conference-room">Manager</option>
+                <option value="reception-room">Reception</option>
+                <option value="server-room">IT</option>
+                <option value="security-room">Security</option>
+                <option value="staff-room">Staff Room</option>
+                <option value="archives-room">Desinger</option>
+                   
+            </select>
+             <button class="submit" type="submit" >Submit</button>
+        
+        </form>
+    </section>
 
 </div>
+
+<script src="main.js"></script>
 </body>
 </html>
