@@ -5,13 +5,14 @@
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
- body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      padding: 40px;
-     background: linear-gradient(to bottom, #000000, #e6f0fa);
-    }
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background: linear-gradient(to bottom, #000000, #e6f0fa);
+}
 
 /* Container layout */
 .container {
@@ -27,7 +28,7 @@
   border-radius: 20px;
   padding: 15px;
   height: 90vh;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
 }
@@ -47,11 +48,9 @@
   padding: 0.7em 1.4em 0.7em 1.1em;
   color: white;
   background: #ad5389;
-  background: linear-gradient(
-    0deg,
-    rgba(20, 167, 62, 1) 0%,
-    rgba(102, 247, 113, 1) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(20, 167, 62, 1) 0%,
+      rgba(102, 247, 113, 1) 100%);
   border: none;
   box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
   letter-spacing: 0.05em;
@@ -83,15 +82,17 @@
   flex: 1;
   padding-right: 5px;
 }
-h2{
-    color: #2f6db3;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-        
 
-  
+h2 {
+  color: #2f6db3;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+
+
 }
+
 .zones {
   background-color: #f8f9fa;
   border-radius: 20px;
@@ -101,7 +102,7 @@ h2{
 
 .zonee {
   display: grid;
-  grid-template-columns: repeat(3 , 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 20px;
 }
@@ -109,7 +110,7 @@ h2{
 .room {
   background: linear-gradient(145deg, #ffffff, #e0f7ff);
   border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -124,7 +125,7 @@ h2{
 
 .room:hover {
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .room-icon {
@@ -141,11 +142,13 @@ h2{
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .zonee {
-    grid-template-columns: repeat(1 ,1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
+
   .room-icon {
     font-size: 35px;
   }
+
   .room-name {
     font-size: 16px;
   }
@@ -161,14 +164,15 @@ h2{
   .container {
     grid-template-columns: 1fr;
   }
- 
+
 }
- 
+
 .conference-room {
   position: relative;
   color: white;
   background: url('image.png') no-repeat center center/cover;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); /* ظل داخلي لتوضيح النص */
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+  /* ظل داخلي لتوضيح النص */
   transition: transform 0.3s ease;
 }
 
@@ -179,13 +183,15 @@ h2{
 
 .conference-room .room-icon,
 .conference-room .room-name {
-  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
+
 .reception-room {
   position: relative;
   color: white;
   background: url('reception.png') no-repeat center center/cover;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); /* ظل داخلي لتوضيح النص */
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+  /* ظل داخلي لتوضيح النص */
   transition: transform 0.3s ease;
 }
 
@@ -196,13 +202,15 @@ h2{
 
 .reception-room-icon,
 .reception-room .room-name {
-  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
-.server-room{
+
+.server-room {
   position: relative;
   color: white;
   background: url('server.png') no-repeat center center/cover;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); /* ظل داخلي لتوضيح النص */
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+  /* ظل داخلي لتوضيح النص */
   transition: transform 0.3s ease;
 }
 
@@ -213,13 +221,15 @@ h2{
 
 .server-room-icon,
 .server-room .room-name {
-  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
-.security-room{
+
+.security-room {
   position: relative;
   color: white;
   background: url('security.png') no-repeat center center/cover;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); /* ظل داخلي لتوضيح النص */
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+  /* ظل داخلي لتوضيح النص */
   transition: transform 0.3s ease;
 }
 
@@ -230,13 +240,15 @@ h2{
 
 .security-room-icon,
 .security-room .room-name {
-  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
-.staff-room{
+
+.staff-room {
   position: relative;
   color: white;
   background: url('staff.png') no-repeat center center/cover;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); /* ظل داخلي لتوضيح النص */
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+  /* ظل داخلي لتوضيح النص */
   transition: transform 0.3s ease;
 }
 
@@ -247,13 +259,15 @@ h2{
 
 .staff-room-icon,
 .staff-room .room-name {
-  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
-.archives-room{
+
+.archives-room {
   position: relative;
   color: white;
   background: url('archives.png') no-repeat center center/cover;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); /* ظل داخلي لتوضيح النص */
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+  /* ظل داخلي لتوضيح النص */
   transition: transform 0.3s ease;
 }
 
@@ -264,52 +278,157 @@ h2{
 
 .archives-room-icon,
 .archives-room .room-name {
-  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
-#form{
-    background: linear-gradient(to bottom, #4c56da, #e6f0fa);
-    display: flex;
-    flex-direction: column;
-     padding: 30px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
 
-}
-input{
-    padding: 10px;
-    width: 250px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-}
 
 select {
-  
-    padding: 10px;
-    width: 270px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
-    
-}
-.submit{
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    background-color: #2fb36f;
-    color: white;
-    cursor: pointer;
-}
-label{
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #000000;
-}
-#formuler{display: none;
+
+  padding: 10px;
+  width: 270px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
 
 }
-#home{
-background: transparent;
+
+.submit {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #2fb36f;
+  color: white;
+  cursor: pointer;
 }
+
+label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #000000;
+}
+
+
+
+
+
+/* --- NEW MODAL & BLUR STYLES --- */
+
+#formuler {
+  /* Existing style: display: none; is fine for initial state */
+  display: none;
+
+  /* Make it a full-screen fixed overlay */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+
+  /* Center the form in the middle of the screen */
+  justify-content: center;
+  align-items: center;
+
+  /* The 'flex' display property is needed here for centering */
+}
+
+/* Pseudo-element for the blurred backdrop */
+#formuler::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* 🔑 KEY: Apply blur to the content *behind* this layer */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  /* For Safari support */
+
+  /* Optional: Slightly darken the background for better focus on the form */
+  background-color: rgba(0, 0, 0, 0.4);
+
+  z-index: -1;
+  /* Place the blur layer behind the actual form */
+}
+
+/* --- END NEW MODAL & BLUR STYLES --- */
+
+/* Updated form styling for contrast and separation */
+#form {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  /* Add a strong shadow to make it 'pop' */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  /* Ensure the form content is above the blur layer */
+}
+
+
+input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+
+.card {
+  width: 250px;
+  height: 90px;
+  background: #ffff;
+  box-shadow: 0 1px 25px rgba(0,0,0,0.2);
+  display: flex ;
+  transform: translate(-50%, -50%);
+ margin-left:200px;
+ margin-top: 100px;
+  padding: 12px 10px;
+ 
+
+}
+
+.card_load {
+  
+  width: 70px;
+  height: 70px;
+  position: relative;
+
+   border-radius: 50%;
+  background: url( 'security.png') no-repeat center center/cover;
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+
+}
+
+.card_load_extreme_title {
+  text-align: center; 
+  align-items: center;
+  width: 90px;
+  height: 10px;
+  position: relative;
+
+
+
+}
+
+.card_load_extreme_descripion {
+  text-align: center; 
+  align-items: center;
+  width: 90px;
+  height: 47px;
+  position: relative;
+
+
+}
+.card :hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
