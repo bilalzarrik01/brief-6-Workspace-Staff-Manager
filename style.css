@@ -31,11 +31,16 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  overflow:scroll;
+  justify-content:center;
+  align-items:center;
 }
 
 .employee-container h2 {
   margin-bottom: 10px;
   color: #2f6db3;
+
+
 }
 
 #cssbuttons-io-button {
@@ -292,7 +297,7 @@ select {
 
 }
 
-.submit {
+#submit {
   margin-top: 15px;
   padding: 10px 20px;
   border: none;
@@ -380,34 +385,33 @@ input {
   border: 1px solid #ccc;
 }
 
-
 .card {
   width: 250px;
-  height: 90px;
-  background: #ffff;
-  box-shadow: 0 1px 25px rgba(0,0,0,0.2);
-  display: flex ;
-  transform: translate(-50%, -50%);
- margin-left:200px;
- margin-top: 100px;
-  padding: 12px 10px;
- 
-
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
 }
 
-.card_load {
-  
+
+#cards {
+  display: flex;
+  flex-direction: column;  /* ✔ make them vertical */
+  gap: 15px;               /* ✔ spacing between cards */
+  margin-top: 20px;
+}
+
+#card_load {
   width: 70px;
   height: 70px;
-  position: relative;
-
-   border-radius: 50%;
-  background: url( 'security.png') no-repeat center center/cover;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
-
+  border-radius: 50%;
+  object-fit: cover;   /* ✔ ensures image fits nicely */
 }
 
-.card_load_extreme_title {
+#card_load_extreme_title {
   text-align: center; 
   align-items: center;
   width: 90px;
@@ -418,7 +422,7 @@ input {
 
 }
 
-.card_load_extreme_descripion {
+#card_load_extreme_descripion {
   text-align: center; 
   align-items: center;
   width: 90px;

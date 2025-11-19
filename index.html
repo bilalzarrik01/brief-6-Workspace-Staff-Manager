@@ -11,7 +11,7 @@
 <div class="container">
   <!-- Sidebar: Unassigned employees -->
   <section class="employee-container">
-    <h2>Unassigned Employees</h2>
+    <!-- <h2>Unassigned Employees</h2> -->
     <button id="cssbuttons-io-button" type="submit">
   <svg
     height="24"
@@ -25,10 +25,15 @@
   <span>Add</span>
 </button>
 <!-- profile -->
-    <div class="card">
-    <div class="card_load"></div>
-    <div class="card_load_extreme_title"> bilal</div>
-    <div class="card_load_extreme_descripion"> Full-stack</div>
+    <div class="card" id="cards">
+   <img id="card_load" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Profile Picture">
+    <div id="card_load_extreme_title"> bilal</div>
+    <div id="card_load_extreme_descripion"> Full-stack</div>
+    <!-- <div></div> -->
+
+    
+
+    
 </div>
  
   </section>
@@ -76,11 +81,11 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="exemple@exemple.com"><br><br>
                        <label for="name">Phone number:</label>
-            <input type="number" id="name" name="name" placeholder="+212704979657"><br><br>
+            <input type="number" id="num" name="name" placeholder="+212704979657"><br><br>
             <label for="email">picture URL:</label>
-            <input type="url" id="email" name="url" placeholder=""><br><br>
+            <input type="url" id="pic" name="url" placeholder=""><br><br>
             <label for="select">Domaine</label>
-            <select name="" id="">
+            <select name="" id="Domaine">
                 <option  value="conference-room">Manager</option>
                 <option value="reception-room">Reception</option>
                 <option value="server-room">IT</option>
@@ -89,7 +94,7 @@
                 <option value="archives-room">Desinger</option>
                    
             </select>
-             <button class="submit" type="submit" >Submit</button>
+             <button id="submit" type="submit" >Submit</button>
         
         </form>
     </section>
