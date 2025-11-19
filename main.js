@@ -6,6 +6,8 @@ const submit = document.getElementById('submit');
 
 add.addEventListener('click', function() {
     formuler.style.display = 'flex';
+        document.getElementById("closeForm").onclick = () => {
+        background.style.display = "none";}
 });
 submit.addEventListener('click', function(event) {
     event.preventDefault();
@@ -29,5 +31,37 @@ submit.addEventListener('click', function(event) {
 
     cards.appendChild(newp);
     formuler.style.display = 'none';
+
+newp.addEventListener('click', function () {
+
+    // Show background
+    background.style.display = 'flex';
+
+    // Clear old info popup if exists
+    background.innerHTML = "";
+
+    // Create info box
+    let info = document.createElement('div');
+    info.classList.add("info-popup");
+
+    info.innerHTML = `
+        <h2>Employee Info</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone Number:</strong> ${num}</p>
+        <p><strong>Domaine:</strong> ${domaine}</p>
+        <button id="closeInfo">Close</button>
+    `;
+
+    background.appendChild(info);
+
+    // Close button
+    document.getElementById("closeInfo").onclick = () => {
+        background.style.display = "none";
+    };
+});
+
+
+
 });
 
