@@ -1,147 +1,155 @@
-// FIX 1: define background
 const background = document.getElementById("background");
-
-const add = document.getElementById('cssbuttons-io-button');
+const addBtn = document.getElementById('cssbuttons-io-button');
 const formuler = document.getElementById('formuler');
-const home = document.getElementById('home');
-const submit = document.getElementById('submit');
-const conf = document.getElementById('conf');
+const submitBtn = document.getElementById('submit');
+const closeFormBtn = document.getElementById('closeForm');
+const cardsContainer = document.getElementById('cards');
 
-add.addEventListener('click', function() {
-    formuler.style.display = 'flex';
-    document.getElementById("closeForm").onclick = () => {
-        background.style.display = "none";
-    }
+let editTarget = null; // to know if we are editing
+
+// OPEN FORM
+addBtn.addEventListener('click', () => { 
+    formuler.style.display = 'flex'; 
+    editTarget = null; // reset edit mode
+});
+closeFormBtn.addEventListener('click', () => { 
+    formuler.style.display = 'none'; 
 });
 
-submit.addEventListener('click', function(event) {
-    event.preventDefault();
+// ADD / EDIT EMPLOYEE
+submitBtn.addEventListener('click', function(e){
+    e.preventDefault();
+
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const num = document.getElementById('num').value.trim();
     const pic = document.getElementById('pic').value.trim();
-    const domaine = document.getElementById('Domaine').value.trim(); 
-    const experience = document.getElementById('Experience').value.trim();
-    const location = document.getElementById('Location').value.trim();
-   
-    const newp = document.createElement('div');
-    newp.classList.add('card');
-    
-    let cards = document.getElementById('cards'); 
+    const domaine = document.getElementById('Domaine').value.trim();
 
-    // FIX 2: save domaine inside card
-    newp.dataset.domaine = domaine;
+    if(!name || !domaine) return alert("Name and Domaine required");
 
-    newp.innerHTML = `
-        <img id="card_load" src="${pic || 'https://randomuser.me/api/portraits/men/75.jpg'}">
-        <div id="card_load_extreme_title">${name}</div>
-        <div id="btn">
-        <button id="edit">EDIT</button>
-        <button id="remove">REMOVE</button>
+    // IF EDITING: UPDATE OLD CARD
+    if (editTarget) {
+        editTarget.dataset.domaine = domaine;
+        editTarget.querySelector('.cardName').textContent = name;
+        editTarget.querySelector('img').src = pic || 'https://randomuser.me/api/portraits/men/75.jpg';
+
+        editTarget.dataset.name = name;
+        editTarget.dataset.email = email;
+        editTarget.dataset.num = num;
+        editTarget.dataset.pic = pic;
+
+        formuler.style.display = 'none';
+        document.getElementById('form').reset();
+        editTarget = null;
+        return;
+    }
+
+    // CREATE NEW CARD
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.dataset.domaine = domaine;
+    card.dataset.name = name;
+    card.dataset.email = email;
+    card.dataset.num = num;
+    card.dataset.pic = pic;
+
+    card.innerHTML = `
+        <img src="${pic || 'https://randomuser.me/api/portraits/men/75.jpg'}">
+        <div class="cardName">${name}</div>
+        <div class="btn">
+            <button class="edit">EDIT</button>
+            <button class="remove">REMOVE</button>
         </div>
     `;
 
-    cards.appendChild(newp);
-
-    let removeBtn = newp.querySelector('#remove');
-    let editBtn = newp.querySelector('#edit');
-
-    removeBtn.addEventListener('click', function(event) {
-        event.stopPropagation();
-        cards.removeChild(newp);
+    // REMOVE BUTTON (MAIN AREA)
+    card.querySelector('.remove').addEventListener('click', (e)=>{
+        e.stopPropagation();
+        card.remove();
     });
 
-    editBtn.addEventListener('click', function(event) {
-        event.stopPropagation();
+    // EDIT BUTTON
+    card.querySelector('.edit').addEventListener('click', (e)=>{
+        e.stopPropagation();
         formuler.style.display = 'flex';
+        editTarget = card; // MARK this card for edit
 
         document.getElementById('name').value = name;
         document.getElementById('email').value = email;
         document.getElementById('num').value = num;
         document.getElementById('pic').value = pic;
         document.getElementById('Domaine').value = domaine;
-        document.getElementById('Experience').value = experience;
-        document.getElementById('Location').value = location;
-
-        cards.removeChild(newp);
     });
 
-    formuler.style.display = 'none';
-
-    newp.addEventListener('click', function () {
+    // SHOW INFO
+    card.addEventListener('click', ()=>{
         background.style.display = 'flex';
-        background.innerHTML = "";
-
-        let info = document.createElement('div');
-        info.classList.add("info-popup");
-
-        info.innerHTML = `
-            <h2>Employee Info</h2>
-            <img src="${pic || 'https://randomuser.me/api/portraits/men/75.jpg'}" 
-                 style="width:100px;height:100px;border-radius:50%;object-fit:cover;">
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${num}</p>
-            <p><strong>Domaine:</strong> ${domaine}</p>
-            <p><strong>Experience:</strong> ${experience}</p>
-            <p><strong>Location:</strong> ${location}</p>
-            <button id="closeInfo">Close</button>
+        background.innerHTML = `
+            <div class="info-popup">
+                <h2>Employee Info</h2>
+                <img src="${pic || 'https://randomuser.me/api/portraits/men/75.jpg'}" 
+                     style="width:100px;height:100px;border-radius:50%;object-fit:cover;">
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${num}</p>
+                <p><strong>Domaine:</strong> ${domaine}</p>
+                <button id="closeInfo">Close</button>
+            </div>
         `;
-
-        background.appendChild(info);
-
-        document.getElementById("closeInfo").onclick = () => {
-            background.style.display = "none";
-        };
+        document.getElementById('closeInfo').onclick = ()=> background.style.display='none';
     });
+
+    cardsContainer.appendChild(card);
+    formuler.style.display = 'none';
+    document.getElementById('form').reset();
 });
 
-
 // ADD TO ROOM SYSTEM
-document.querySelectorAll('.add-to-room').forEach(plusBtn => {
+document.querySelectorAll('.add-to-room').forEach(plusBtn=>{
+    plusBtn.addEventListener('click', ()=>{
+        const room = plusBtn.parentElement;
+        const roomDomaine = room.dataset.domaine;
 
-    plusBtn.addEventListener('click', () => {
-
-        let room = plusBtn.parentElement;
-
-        // FIX 3: room must have data-domaine
-        let roomDomaine = room.dataset.domaine;
-
-        background.style.display = "flex";
-        background.innerHTML = `
+        background.style.display='flex';
+        background.innerHTML=`
             <div class="info-popup">
                 <h2>Select Employee</h2>
                 <div id="empList" style="display:flex;flex-direction:column;gap:10px;"></div>
                 <button id="closeInfo">Close</button>
             </div>
         `;
+        const empList = document.getElementById('empList');
 
-        let empList = document.getElementById("empList");
+        document.querySelectorAll('#cards .card').forEach(card=>{
+            if(card.dataset.domaine === roomDomaine){
+                const clone = card.cloneNode(true);
+                clone.querySelector('.btn')?.remove();
+                clone.style.cursor='pointer';
+                clone.style.border='2px solid #4CAF50';
 
-        document.querySelectorAll("#cards .card").forEach(card => {
+                clone.onclick = ()=>{
 
-            let employeeDomaine = card.dataset.domaine;
-
-            if (employeeDomaine === roomDomaine) {
-
-                let clone = card.cloneNode(true);
-                clone.querySelector("#btn")?.remove();
-                clone.style.cursor = "pointer";
-                clone.style.border = "2px solid #4CAF50";
-
-                clone.onclick = () => {
-                    card.remove();
+                    // MOVE CARD INTO ROOM
                     room.appendChild(card);
+                    card.style.width='90%';
+                    card.style.margin='5px 0';
+                    background.style.display='none';
 
-                    background.style.display = "none";
+                    // FIX REMOVE BUTTON INSIDE ROOM → return to main list
+                    const removeBtn = card.querySelector('.remove');
+                    removeBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        cardsContainer.appendChild(card); // RETURN TO ORIGINAL LIST
+                        card.style.width = "";
+                        card.style.margin = "";
+                    };
                 };
 
                 empList.appendChild(clone);
             }
         });
 
-        document.getElementById("closeInfo").onclick = () => {
-            background.style.display = "none";
-        };
+        document.getElementById('closeInfo').onclick=()=>background.style.display='none';
     });
 });

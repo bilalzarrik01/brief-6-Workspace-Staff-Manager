@@ -524,7 +524,7 @@ input {
 
 }
 
-#remove {
+.remove {
 
   margin-top: 15px;
   border-radius: 2px;
@@ -536,8 +536,7 @@ input {
 
   cursor: pointer;
 }
-#edit {
-
+.edit {
   margin-top: 15px;
   border-radius: 2px;
   padding: 3px 3px;
@@ -578,7 +577,7 @@ input {
   color: white;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
 }
 .add-to-room:hover {
   background-color: #2fb336;
