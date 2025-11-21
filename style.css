@@ -113,6 +113,7 @@ h2 {
   margin-top: 20px;
 }
 
+
 .room {
   background: linear-gradient(145deg, #ffffff, #e0f7ff);
   border-radius: 15px;
@@ -441,15 +442,19 @@ input {
     padding: 10px;
   }
 
-  .card {
-    width: 95%;
-    max-width: none;
-  }
+ .card {
+  width: 90%;
+  max-width: 280px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.15);
+}
 
-  #card_load {
-    width: 55px;
-    height: 55px;
-  }
+
 }
 
 #background {
@@ -537,6 +542,7 @@ input {
   cursor: pointer;
 }
 .edit {
+
   margin-top: 15px;
   border-radius: 2px;
   padding: 3px 3px;
@@ -583,4 +589,16 @@ input {
   background-color: #2fb336;
 
 
+}
+.info-popup img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
 }

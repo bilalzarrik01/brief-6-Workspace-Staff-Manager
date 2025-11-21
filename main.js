@@ -4,6 +4,11 @@ const formuler = document.getElementById('formuler');
 const submitBtn = document.getElementById('submit');
 const closeFormBtn = document.getElementById('closeForm');
 const cardsContainer = document.getElementById('cards');
+// REGEX VALIDATION RULES
+const nameRegex = /^[a-zA-ZÀ-ÿ\s]+$/;
+const phoneRegex = /^[0-9]{8,15}$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 
 let editTarget = null; // to know if we are editing
 
@@ -25,6 +30,18 @@ submitBtn.addEventListener('click', function(e){
     const num = document.getElementById('num').value.trim();
     const pic = document.getElementById('pic').value.trim();
     const domaine = document.getElementById('Domaine').value.trim();
+      // ------- REGEX VALIDATION ---------
+
+    if (!nameRegex.test(name)) {
+        return alert("❌ Invalid Name — only letters allowed.");
+    }
+    if (email && !emailRegex.test(email)) {
+        return alert("❌ Invalid Email format.");
+    }
+    if (num && !phoneRegex.test(num)) {
+        return alert("❌ Phone number must contain only digits (8–15).");
+    }
+    if (!name || !domaine) return alert("Name and Domaine required");
 
     if(!name || !domaine) return alert("Name and Domaine required");
 
@@ -138,12 +155,21 @@ document.querySelectorAll('.add-to-room').forEach(plusBtn=>{
 
                     // FIX REMOVE BUTTON INSIDE ROOM → return to main list
                     const removeBtn = card.querySelector('.remove');
-                    removeBtn.onclick = (e) => {
-                        e.stopPropagation();
-                        cardsContainer.appendChild(card); // RETURN TO ORIGINAL LIST
-                        card.style.width = "";
-                        card.style.margin = "";
-                    };
+                   removeBtn.onclick = (e) => {
+    e.stopPropagation();
+
+    // MOVE BACK TO MAIN AREA
+    cardsContainer.appendChild(card);
+    card.style.width = "";
+    card.style.margin = "";
+
+    // RESTORE ORIGINAL REMOVE BUTTON FUNCTION
+    removeBtn.onclick = (ev) => {
+        ev.stopPropagation();
+        card.remove(); // delete normally
+    };
+};
+
                 };
 
                 empList.appendChild(clone);
