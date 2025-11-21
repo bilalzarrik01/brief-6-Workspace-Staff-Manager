@@ -128,7 +128,8 @@ h2 {
   text-align: center;
   width: 300px;
   height: 300px;
-  overflow: scroll;
+  overflow-y: scroll;
+  scrollbar-color: transparent transparent;
 }
 
 .room:hover {
@@ -299,14 +300,13 @@ select {
 
 
 label {
-  margin-top: 10px;
+  margin-top: 0px;
   margin-bottom: 5px;
   font-weight: bold;
   color: #000000;
 }
 
-/* --- NEW MODAL & BLUR STYLES --- */
-/* Center modal container */
+
 #formuler {
   display: none;
   position: fixed;
@@ -332,12 +332,12 @@ label {
   z-index: -1;
 }
 
-/* ----- FIXED HEIGHT FORM (scrolls inside) ----- */
+
 #form {
   width: 420px;
   max-width: 90%;
-  max-height: 80vh;        /* 🔥 prevents the modal from becoming too tall */
-  overflow-y: auto;        /* 🔥 internal scroll only */
+  max-height: 80vh;       
+  overflow-y: auto;       
   padding: 30px;
   
   background: white;
@@ -345,7 +345,7 @@ label {
 
   display: flex;
   flex-direction: column;
-  gap: 18px;
+
 
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
   animation: fadeInScale .25s ease;
@@ -360,6 +360,7 @@ label {
 
 
 input {
+  margin: 0;
   padding: 10px;
   width: 250px;
   border-radius: 10px;
@@ -396,40 +397,17 @@ input {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* Profile image */
-#card_load {
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  object-fit: cover;
-}
 
-/* Card text */
+
+/* name of card */
 #card_load_extreme_title {
-  font-size: 15px;
+    font-size: 15px;
   font-weight: 400;
   color: #333;
-
-
-}
-
-
-#card_load {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
- 
-}
-
-#card_load_extreme_title {
   text-align: center;
   align-items: center;
   width: 90px;
   height: 10px;
-
-
-
 
 }
 
@@ -444,7 +422,7 @@ input {
 
  .card {
   width: 90%;
-  max-width: 280px;
+  max-width: 200px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -529,6 +507,7 @@ input {
 
 }
 
+
 .remove {
 
   margin-top: 15px;
@@ -584,9 +563,11 @@ input {
   font-size: 16px;
   cursor: pointer;
 
+
 }
 .add-to-room:hover {
   background-color: #2fb336;
+
 
 
 }

@@ -4,7 +4,7 @@ const formuler = document.getElementById('formuler');
 const submitBtn = document.getElementById('submit');
 const closeFormBtn = document.getElementById('closeForm');
 const cardsContainer = document.getElementById('cards');
-// REGEX VALIDATION RULES
+// Regex 
 const nameRegex = /^[a-zA-ZÀ-ÿ\s]+$/;
 const phoneRegex = /^[0-9]{8,15}$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -153,12 +153,12 @@ document.querySelectorAll('.add-to-room').forEach(plusBtn=>{
                     card.style.margin='5px 0';
                     background.style.display='none';
 
-                    // FIX REMOVE BUTTON INSIDE ROOM → return to main list
+                    //  return to main list
                     const removeBtn = card.querySelector('.remove');
                    removeBtn.onclick = (e) => {
     e.stopPropagation();
 
-    // MOVE BACK TO MAIN AREA
+   
     cardsContainer.appendChild(card);
     card.style.width = "";
     card.style.margin = "";
